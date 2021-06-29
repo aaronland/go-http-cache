@@ -6,7 +6,12 @@ The memory adapter minimizes GC overhead to near zero and supports some options 
 
 ## Important
 
-This is a hard fork of @victorspinger's [http-cache](https://github.com/victorspringer/http-cache) package.
+This is a hard fork of @victorspinger's [http-cache](https://github.com/victorspringer/http-cache) package. Differences include:
+
+* Removing the `memory/redis` adapter and the `benchmark` package so there are no external dependencies.
+* Ensuring that all the response headers from the previous response are assigned to the HTTP recorder.
+* Update `client.Middleware` method to return `http.HandlerFunc`.
+* Storing the HTTP status code in the cached `Response` and checking for and issuing HTTP redirect responses where appropriate.
 
 ## Getting Started
 
